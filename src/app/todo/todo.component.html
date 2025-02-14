@@ -1,0 +1,14 @@
+<p>todo Example</p>
+
+<div>
+<input type="text" #todoTitle/> 
+</div>
+<div>
+    <button (click)="onSubmit(todoTitle.value)">Click</button>
+</div>
+
+
+<div *ngFor="let todo of (todo$ | async)">
+    <input type="checkbox" [checked]="todo.completed" (onchange)="updateStatus(todo)"/>
+    {{todo.title }}
+</div>
